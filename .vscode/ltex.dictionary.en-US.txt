@@ -1,0 +1,4 @@
+Venv
+Reguleringsteknikk
+VSCode
+venv
