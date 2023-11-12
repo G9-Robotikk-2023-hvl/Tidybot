@@ -5,7 +5,7 @@
   <link name="base_link">
     <visual>
       <geometry>
-      <mesh filename="package://meshes/base.stl"/>
+      <mesh filename="https://github.com/G9-Robotikk-2023-hvl/Tidybot/blob/main/notes/arm/meshes/base.stl"/>
     </geometry>
     </visual>
   </link>

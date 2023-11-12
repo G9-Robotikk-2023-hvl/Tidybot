@@ -1,0 +1,15 @@
+<!-- arm_joints.xacro -->
+<!-- Define joint 0 -->
+<xacro:joint name="joint0" parent="base_link" child="link0" xyz="0 0 0" rpy="0 0 0" axis_xyz="0 0 1" lower="-3.1416" upper="3.1416" effort="100" velocity="0.1"/>
+
+<!-- Define joint 1 -->
+<xacro:joint name="joint1" parent="link0" child="link1" xyz="0.28 0 0.29" rpy="0 -1.5708 0" axis_xyz="0 0 1" lower="-1.5708" upper="1.5708" effort="100" velocity="0.1"/>
+
+<!-- Define fixed joint between base_link and link1 -->
+<xacro:joint name="fixed_joint" type="fixed" parent="link1" child="link1_1" xyz="4 0.28 -0.28" rpy="1.5708 0 0"/>
+
+<!-- Define joint 2 -->
+<xacro:joint name="joint2" parent="link1_1" child="link2" xyz="0 0.28 2" rpy="-1.5708 0 0" axis_xyz="0 0 1" lower="-3.1416" upper="3.1416" effort="100" velocity="0.1"/>
+
+<!-- Define joint 3 -->
+<xacro:joint name="joint3" parent="link2" child="link_end" xyz="0 -5 0" rpy="0 1.5708 1.5708" axis_xyz="0 1 0" lower="-3.1416" upper="3.1416" effort="100" velocity="0.1"/>

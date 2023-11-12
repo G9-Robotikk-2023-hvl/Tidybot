@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<robot name="tidybot_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Include the base link definition -->
+  <xacro:include filename="base_link.xacro"/>
+
+  <!-- Include the joint and link definitions for the arm -->
+  <xacro:include filename="arm_links.xacro"/>
+  <xacro:include filename="arm_joints.xacro"/>
+
+</robot>

@@ -1,0 +1,15 @@
+<!-- arm_links.xacro -->
+<!-- Define link 0 -->
+<xacro:link name="link0" xyz="0 0 0.28" rpy="0 0 0" cylinder_radius="0.28" cylinder_length="0.56"/>
+
+<!-- Define link 1 -->
+<xacro:link name="link1" xyz="2 0 -0.28" rpy="0 1.5708 0" cylinder_radius="0.28" cylinder_length="4.0"/>
+
+<!-- Define link 1_1 -->
+<xacro:link name="link1_1" xyz="0 0 1" rpy="0 0 0" cylinder_radius="0.28" cylinder_length="2.0"/>
+
+<!-- Define link 2 -->
+<xacro:link name="link2" xyz="0 -2.5 0.28" rpy="1.5708 0 0" cylinder_radius="0.28" cylinder_length="5.0"/>
+
+<!-- Define link_end -->
+<xacro:link name="link_end" xyz="-0.25 -0.28 0" rpy="0 1.5708 0" cylinder_radius="0.28" cylinder_length="0.5"/>
