@@ -1,12 +1,13 @@
 <?xml version="1.0" ?>
-<robot name="tidybot arm">
+<robot name="rrrr_robot">
 
   <!-- Define the base link -->
   <link name="base_link">
     <visual>
+      <origin xyz="0 0 -0.05" rpy="0 0 0"/>
       <geometry>
-      <mesh filename="https://github.com/G9-Robotikk-2023-hvl/Tidybot/blob/main/notes/arm/meshes/base.stl"/>
-    </geometry>
+        <box size="0.56 0.56 0.1"/>
+      </geometry>
     </visual>
   </link>
 
@@ -48,7 +49,6 @@
     </visual>
   </link>
 
-
   <!-- Define fixed joint between base_link and link1 -->
   <joint name="fixed_joint" type="fixed">
     <origin xyz="4 0.28 -0.28" rpy="1.5708 0 0"/>
@@ -87,7 +87,7 @@
 
   <!-- Define joint 3 -->
   <joint name="joint3" type="revolute">
-    <origin xyz="0 -5 0" rpy="0 1.5708 1.5708"/>
+    <origin xyz="0 -5 0" rpy="1.5708 0 0"/>
     <parent link="link2"/>
     <child link="link_end"/>
     <axis xyz="0 1 0"/>
@@ -97,9 +97,27 @@
   <!-- Define link 3 -->
   <link name="link_end">
     <visual>
-      <origin xyz="-0.25 -0.28 0" rpy="0 1.5708 0"/>
+      <origin xyz="0 -0.28 0.25" rpy="0 0 0"/>
       <geometry>
         <cylinder radius="0.28" length="0.5"/>
+      </geometry>
+    </visual>
+  </link>
+
+  
+  <!-- Define fixed joint between base_link and link1 -->
+  <joint name="joint_end" type="fixed">
+    <origin xyz="0 -0.28 0.5" rpy="0 0 0"/>
+    <parent link="link_end"/>
+    <child link="link_end_point"/>
+  </joint>
+
+  <!-- Define link 3 -->
+  <link name="link_end_point">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
       </geometry>
     </visual>
   </link>
