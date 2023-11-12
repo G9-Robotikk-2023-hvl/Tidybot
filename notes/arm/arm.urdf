@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<robot name="tidybot arm">
+
+  <!-- Define the base link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+      <mesh filename="package://meshes/base.stl"/>
+    </geometry>
+    </visual>
+  </link>
+
+  <!-- Define joint 0 -->
+  <joint name="joint0" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="link0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.1416" upper="3.1416" effort="100" velocity="0.1"/>
+  </joint>
+
+  <!-- Define link 0 -->
+  <link name="link0">
+    <visual>
+      <origin xyz="0 0 0.28" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.28" length="0.56"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Define joint 1 -->
+  <joint name="joint1" type="revolute">
+    <origin xyz="0.28 0 0.29" rpy="0 -1.5708 0"/>
+    <parent link="link0"/>
+    <child link="link1"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="0.1"/>
+  </joint>
+
+  <!-- Define link 1 -->
+  <link name="link1">
+    <visual>
+      <origin xyz="2 0 -0.28" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.28" length="4.0"/>
+      </geometry>
+    </visual>
+  </link>
+
+
+  <!-- Define fixed joint between base_link and link1 -->
+  <joint name="fixed_joint" type="fixed">
+    <origin xyz="4 0.28 -0.28" rpy="1.5708 0 0"/>
+    <parent link="link1"/>
+    <child link="link1_1"/>
+  </joint>
+
+  <!-- Define link 1 -->
+  <link name="link1_1">
+    <visual>
+      <origin xyz="0 0 1" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.28" length="2.0"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Define joint 2 -->
+  <joint name="joint2" type="revolute">
+    <origin xyz="0 0.28 2" rpy="-1.5708 0 0"/>
+    <parent link="link1_1"/>
+    <child link="link2"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.1416" upper="3.1416" effort="100" velocity="0.1"/>
+  </joint>
+
+  <!-- Define link 2 -->
+  <link name="link2">
+    <visual>
+      <origin xyz="0 -2.5 0.28" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.28" length="5.0"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Define joint 3 -->
+  <joint name="joint3" type="revolute">
+    <origin xyz="0 -5 0" rpy="0 1.5708 1.5708"/>
+    <parent link="link2"/>
+    <child link="link_end"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.1416" upper="3.1416" effort="100" velocity="0.1"/>
+  </joint>
+
+  <!-- Define link 3 -->
+  <link name="link_end">
+    <visual>
+      <origin xyz="-0.25 -0.28 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.28" length="0.5"/>
+      </geometry>
+    </visual>
+  </link>
+
+</robot>
