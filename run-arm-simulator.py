@@ -52,6 +52,6 @@ while True:
     # env.process_events()
 
     # Update the environment with the new robot pose
-    env.step(0)
+    env.step(10)
 
     time.sleep(0.01)
