@@ -33,11 +33,11 @@ class TidyArm(DHRobot):
     startPose:ndarray
     
     def __init__(self,
-        l1:float   = 177*mm,
-        l2:float   = 128*mm,
-        l2_1:float =  24*mm,
-        l3:float   = 124*mm,
-        l4:float   = 126*mm
+        l1:float   =  0.0454,
+        l2:float   = 0.20,
+        l2_1:float = 0.20,
+        l3:float   = 0.226,
+        l4:float   = 0.082
     ):
         Beta = arctan(l2_1/l2)
         hyp = sqrt(l2**2+l2_1**2)
@@ -50,3 +50,9 @@ class TidyArm(DHRobot):
         super().__init__(DHMatrix, name="TidyArm")
         
         self.startPose = [0 for j in DHMatrix]
+        
+        L1 = 0.0454;
+        L2 = 0.20;
+        L3 = 0.20;
+        L4 = 0.226;
+        L5 = 0.082

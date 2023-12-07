@@ -1,6 +1,6 @@
 from numpy import deg2rad
 from roboticstoolbox import jtraj, IK_NR
-from TidyArm import TidyArm
+from TidyArm_plain import TidyArm
 
 robot:TidyArm = TidyArm()
 
