@@ -1,4 +1,4 @@
-from numpy import arctan, ndarray, pi, sqrt
+from numpy import arctan, deg2rad, ndarray, pi, sqrt
 from roboticstoolbox import DHRobot, RevoluteDH
 
 # Defining units
@@ -29,7 +29,8 @@ class TidyArm(DHRobot):
     - `l4`: Link 3 length in meters (default: 126 mm)
     """
     
-    start:ndarray
+    # the starting pose of Tidybot
+    startPose:ndarray
     
     def __init__(self,
         l1:float   = 177*mm,
@@ -41,11 +42,11 @@ class TidyArm(DHRobot):
         Beta = arctan(l2_1/l2)
         hyp = sqrt(l2**2+l2_1**2)
         DHMatrix = [
-            RevoluteDH(d= l1, a= 0  , alpha= pi/2, offset=  pi         ),
-            RevoluteDH(d= 0 , a= hyp, alpha= 0   , offset=  Beta       ),
-            RevoluteDH(d= 0 , a= l3 , alpha= 0   , offset= -Beta + pi/2),
-            RevoluteDH(d= 0 , a= l4 , alpha= 0   , offset=  0          )
+            RevoluteDH(d= l1, a= 0  , alpha= pi/2, offset=  pi                                             ),
+            RevoluteDH(d= 0 , a= hyp, alpha= 0   , offset=  Beta       , qlim=[deg2rad( -90), deg2rad( 90)]),
+            RevoluteDH(d= 0 , a= l3 , alpha= 0   , offset= -Beta + pi/2, qlim=[deg2rad(-102), deg2rad(303)]),
+            RevoluteDH(d= 0 , a= l4 , alpha= 0   , offset=  0          , qlim=[deg2rad(-180), deg2rad(180)])
         ]
         super().__init__(DHMatrix, name="TidyArm")
         
-        self.start = [0 for j in DHMatrix]
+        self.startPose = [0 for j in DHMatrix]
